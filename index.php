@@ -44,7 +44,19 @@ if (is_array($jadwalList)) {
     <style>
         @media (max-width: 575.98px) { .jadwal{
             max-width: 300px;
-        } }
+        }
+        .head h1 {
+         font-size: 27px;
+        
+        }
+        .text-small tbody,thead{
+         font-size: 10px;
+        }
+        .tanggal{
+         font-size: 10px;
+        }
+       }
+
     @font-face {
         font-family: arab;
         src: url(hidyatullah.ttf);
@@ -53,13 +65,13 @@ if (is_array($jadwalList)) {
     body {
         padding-top: 70px;
     }
-    h1 {
+    .head {
         font-family: arab;
         color: #20913e;
         font-size: 50px;
         font-weight: bold;
-        margin-top: 80px;
-        padding-top: 20px;
+        margin-top: 10px;
+        padding-top: 10px;
     }
 </style>
 </head>
@@ -74,7 +86,7 @@ if (is_array($jadwalList)) {
     </a>
 
     <!-- Bagian Tengah (Navigasi Home) -->
-    <a class="navbar-brand mx-auto text-white font-weight-bold" style="font-size:30px;" href="#">Home</a>
+    <a class=" mx-auto text-white font-weight-bold " style="font-size:30px; position:center;" href="#home">Home</a>
 
     <!-- Bagian Kanan (Ikon Media Sosial) -->
     <div class="d-flex justify-content-end">
@@ -86,7 +98,10 @@ if (is_array($jadwalList)) {
 
   </div>
 </nav> 
-        <h1 class="text-center mb-4 mt-5">Waktu Adzan Wilayah Bandung</h1>
+         <div id="home" class="head">
+
+            <h1 class="text-center mb-4 mt-5">Waktu Adzan Wilayah Bandung</h1>
+         </div>
 
         <!-- Form untuk memilih tahun dan bulan -->
         <form class="form-inline mb-4 justify-content-center">
@@ -115,32 +130,33 @@ if (is_array($jadwalList)) {
         </form>
 
         <!-- Tabel untuk menampilkan jadwal sholat -->
-<!-- Tabel untuk menampilkan jadwal sholat -->
 <div id="table-container" style="overflow: auto; max-height: 300px;"> 
 
 <table class="table table-striped table-bordered" >
-    <thead class="bg-success text-white" style="position: sticky; top: 0; z-index: 1;">
-        <tr>
-            <th class="text-center">TANGGAL</th>
-            <th class="text-center">SHUBUH</th>
-            <th class="text-center">DZHUHUR</th>
-            <th class="text-center">ASHAR</th>
-            <th class="text-center">MAGRIB</th>
-            <th class="text-center">ISYA</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($selectedMonthData as $jadwal) : ?>
-            <tr>
-                <td class="text-center"><?= $jadwal["tanggal"]; ?></td>
-                <td class="text-center"><?= $jadwal["shubuh"]; ?></td>
-                <td class="text-center"><?= $jadwal["dzuhur"]; ?></td>
-                <td class="text-center"><?= $jadwal["ashr"]; ?></td>
-                <td class="text-center"><?= $jadwal["magrib"]; ?></td>
-                <td class="text-center"><?= $jadwal["isya"]; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
+   <div class="text-small">
+      <thead class="bg-success text-white" style="position: sticky; top: 0; z-index: 1; width:100%">
+          <tr>
+              <th class="text-center">TANGGAL</th>
+              <th class="text-center">SHUBUH</th>
+              <th class="text-center">DZHUHUR</th>
+              <th class="text-center">ASHAR</th>
+              <th class="text-center">MAGRIB</th>
+              <th class="text-center">ISYA</th>
+          </tr>
+      </thead>
+      <tbody class="tanggal">
+          <?php foreach ($selectedMonthData as $jadwal) : ?>
+              <tr>
+                  <td class="text-center"><?= $jadwal["tanggal"]; ?></td>
+                  <td class="text-center"><?= $jadwal["shubuh"]; ?></td>
+                  <td class="text-center"><?= $jadwal["dzuhur"]; ?></td>
+                  <td class="text-center"><?= $jadwal["ashr"]; ?></td>
+                  <td class="text-center"><?= $jadwal["magrib"]; ?></td>
+                  <td class="text-center"><?= $jadwal["isya"]; ?></td>
+              </tr>
+          <?php endforeach; ?>
+      </tbody>
+   </div>
 </table>
 </div>
 
