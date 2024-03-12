@@ -46,4 +46,42 @@ curl_close($ch);
 // Mengonversi JSON ke array
 $datajadwal = json_decode($json_data, true);
 
+
+
+$url = 'https://api.myquran.com/v2/quran/surat/semua';
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$json_data = curl_exec($ch);
+curl_close($ch);
+
+// Mengonversi JSON ke array
+$dataquran = json_decode($json_data, true);
+
+
+// Periksa apakah parameter selectedSurah ada dalam URL GET
+if(isset($_GET['selectedSurah'])) {
+    // Ambil nilai dari parameter selectedSurah
+    $selectedSurah = $_GET['selectedSurah'];
+
+    // Ubah nilai variabel $ayat sesuai dengan nilai dari parameter selectedSurah
+    $ayat = intval($selectedSurah); // Konversi nilai ke integer jika diperlukan
+} else {
+    // Atur nilai default jika parameter tidak ada atau kosong
+    $ayat = 1; // Nilai default
+}
+
+// Buat URL dengan nilai $ayat yang sudah diubah
+$url = 'https://api.myquran.com/v2/quran/surat/'.$ayat;
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$json_data = curl_exec($ch);
+curl_close($ch);
+
+// Mengonversi JSON ke array
+$data_ayat = json_decode($json_data, true);
+
 ?>
