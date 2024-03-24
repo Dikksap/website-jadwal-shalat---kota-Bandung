@@ -9,4 +9,3 @@ function toggleMenu() {
       menu.classList.remove('active');
     }
   });
-  

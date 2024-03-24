@@ -39,7 +39,7 @@
 
         @font-face {
             font-family: arab;
-            src: url(hidyatullah.ttf);
+            src: url(../hidyatullah.ttf);
         }
 
         body {
@@ -59,7 +59,6 @@
 
 <body>
 
-    <!-- Navigasi -->
     <?php
 require('navbar.php');
 ?>

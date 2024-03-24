@@ -1,4 +1,5 @@
 /* Your existing styles */
+
 nav {
     background-color: #343a40;
     position: fixed;
@@ -36,7 +37,7 @@ nav {
   
   nav .menu li a {
     color: #fff;
-    font-size: 17px;
+    font-size: 10px;
     font-weight: 500;
     text-decoration: none;
   }
